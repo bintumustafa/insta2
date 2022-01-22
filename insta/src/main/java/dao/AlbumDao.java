@@ -1,6 +1,6 @@
 package dao;
 
-public class Album {
+public class AlbumDao {
 	public static void add(String name, int user_id,String visibility) {
 		
 	}

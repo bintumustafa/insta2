@@ -1,7 +1,7 @@
 package dao;
 import java.sql.*;
 
-public class User {
+public class UserDao {
 	
 	public static void get(int id) {
 		
