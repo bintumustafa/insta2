@@ -3,11 +3,45 @@ import java.sql.*;
 
 public class UserDao {
 	
-	public static void get(int id) {
+	public static User get(int id) {
+		User user = null;
 		
+		Connection conn = DB.connect();
+		  
+		  try {
+			 //String sql = "INSERT into users(login, password, first_name, last_name,image_url,role) VALUES('rrr','bbb','ddpfj','ddkjd','dlkddk','djkldjd')";
+			 //stmt.executeQuery("INSERT into users(login, password, first_name, last_name,image_url,role) VALUES('rrr','bbb','ddpfj','ddkjd','dlkddk','djkldjd')");
+			  PreparedStatement st = conn.prepareStatement("SELECT * FROM users WHERE id=?");
+			  st.setInt(1, id);
+		  
+			  st.executeUpdate();
+			  conn.close();
+		  } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return user;
 	}
 	
 	public static void verifyLogin(String login, String password) {
+		Connection conn = DB.connect();
+		  
+		  try {
+			 //String sql = "INSERT into users(login, password, first_name, last_name,image_url,role) VALUES('rrr','bbb','ddpfj','ddkjd','dlkddk','djkldjd')";
+			 //stmt.executeQuery("INSERT into users(login, password, first_name, last_name,image_url,role) VALUES('rrr','bbb','ddpfj','ddkjd','dlkddk','djkldjd')");
+			  PreparedStatement st = conn.prepareStatement("SELECT * from users WHERE login=? and password=?");
+			  st.setString(1, login);
+			  st.setString(2, password);
+		
+			  st.executeUpdate();
+			  conn.close();
+		  } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
